@@ -51,7 +51,7 @@ def do_login(email):
     querydata = cur.execute("SELECT username FROM user WHERE email='"+email+"'")
     con.close
     result=querydata.fetchone()
-    resp=make_response(render_template('user.html', username = result[0]))
+    resp=make_response(render_template('user.html', username = result[0], title = result[0]+"的登入畫面"))
     resp.set_cookie('login', 'ok')
     if result:
         return resp
@@ -73,7 +73,7 @@ def login_check(email,password):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title = "我的作業")
 
 @app.route('/user/<username>')
 def show_user_profile(username):
@@ -88,7 +88,7 @@ def register():
         # username = request.args.get('username', '') if request.args.get('username', '') else ''
         username = request.args.get('username', '')
         email = request.args.get('email', '')
-        return render_template('register.html', username=username, email=email)
+        return render_template('register.html', username=username, email=email, title = "我的作業")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -98,19 +98,19 @@ def login():
             return do_login(request.form['mailbar'])
         else:
             error = 'Invalid username/password'
-            resp=make_response(render_template('login_fail.html'))
+            resp=make_response(render_template('login_fail.html', title = "我的作業"))
             resp.set_cookie('login','fail')
             return resp
     else:
-        return render_template('login.html')
+        return render_template('login.html', title = "我的作業")
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('404.html', title = "我的作業"), 404
 
 @app.errorhandler(500)
 def page_not_found(e):
-    return render_template('500.html'), 500
+    return render_template('500.html', title = "我的作業"), 500
 
 
 if __name__ == "__main__":
