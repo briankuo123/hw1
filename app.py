@@ -77,7 +77,7 @@ def index():
 
 @app.route('/user/<username>')
 def show_user_profile(username):
-    return render_template('user.html', username = username)
+    return render_template('user.html', username = username, title = username+'的登入畫面')
 
 @app.route('/register', methods=['GET','POST'])
 def register():
