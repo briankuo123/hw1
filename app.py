@@ -77,7 +77,7 @@ def index():
 
 @app.route('/user/<username>')
 def show_user_profile(username):
-    return render_template('user.html', username = username, title = username+'的登入畫面')
+    return render_template('user.html', username = username, title= username+'的登入畫面')
 
 @app.route('/register', methods=['GET','POST'])
 def register():
@@ -88,7 +88,7 @@ def register():
         # username = request.args.get('username', '') if request.args.get('username', '') else ''
         username = request.args.get('username', '')
         email = request.args.get('email', '')
-        return render_template('register.html', username=username, email=email, title = "我的作業")
+        return render_template('register.html', username = username, email = email, title = "我的作業")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
