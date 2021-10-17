@@ -51,7 +51,7 @@ def do_login(email):
     querydata = cur.execute("SELECT username FROM user WHERE email='"+email+"'")
     con.close
     result=querydata.fetchone()
-    resp=make_response(render_template('user.html', username = result[0], title = result[0]+"的登入畫面"))
+    resp=make_response(redirect('http://127.0.0.1:5000/user/'+result[0]))
     resp.set_cookie('login', 'ok')
     if result:
         return resp
