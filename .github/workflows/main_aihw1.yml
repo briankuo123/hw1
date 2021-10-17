@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'AIHw1'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6B60112A1F7744F4AC2FA1E81AEEC472 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E7F92A1D1A3548F7B0EF9C60AB3CB68A }}
