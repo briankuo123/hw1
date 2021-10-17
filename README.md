@@ -1,3 +1,4 @@
+https://aihw1.azurewebsites.net
 # AI人工智慧導論 第1次作業
 
 ## 作業要求
