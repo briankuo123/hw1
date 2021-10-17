@@ -51,7 +51,7 @@ def do_login(email):
     querydata = cur.execute("SELECT username FROM user WHERE email='"+email+"'")
     con.close
     result=querydata.fetchone()
-    resp=make_response(redirect('http://127.0.0.1:5000/user/'+result[0]))
+    resp=make_response(redirect(url_for('show_user_profile', username = result[0])))
     resp.set_cookie('login', 'ok')
     if result:
         return resp
